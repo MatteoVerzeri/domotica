@@ -18,7 +18,8 @@ namespace telecomando
             InitializeComponent();
             telecomando modprod = new telecomando("sony", "xyz");
             textBox1.Text = "0";
-            telecomando canale = textBox1.Text;
+            string v = textBox1.Text;
+            telecomando canale = new telecomando(v,"u");
             
         }
 
@@ -45,19 +46,9 @@ namespace telecomando
                 textBox1.Text = textBox1.Text + "2";
             }
         }
-        public void accendi()
-        {
-            setStato(true);
-        }
-        public void spegni()
-        {
-            setStato(false);
-        }
+        
 
-        private void setStato(bool nuovoStato)
-        {
-            bool stato = nuovoStato;
-        }
+       
         private void button14_Click(object sender, EventArgs e)
         {
 
@@ -65,8 +56,8 @@ namespace telecomando
 
         private void button1_Click(object sender, EventArgs e)
         {
-            telecomando canale = new telecomando;
-                canale.accendi();
+           
+                setStato();
         }
         class telecomando
         {
@@ -85,6 +76,18 @@ namespace telecomando
             public telecomando(bool g)
             {
 
+            }
+            private void setStato(bool nuovoStato)
+            {
+                bool stato = nuovoStato;
+            }
+            public void accendi()
+            {
+                setStato(true);
+            }
+            public void spegni()
+            {
+                setStato(false);
             }
         }
 
@@ -192,6 +195,11 @@ namespace telecomando
             {
                 textBox1.Text = textBox1.Text + "0";
             }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
